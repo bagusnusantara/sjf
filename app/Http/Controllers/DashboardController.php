@@ -67,8 +67,8 @@ class DashboardController extends Controller
     }
 
     public function getPendapatanPerJam() {
-//        $now = date("Y-m-d");
-        $now = date("2018-11-28");
+        $now = date("Y-m-d");
+//        $now = date("2018-11-28");
         $total = DB::select('select hour(time(shd.entry_date)) as time, sum(shd.grand_total) as total
                                 from so_hdr_dago as shd
                                 where date(shd.so_date) = ?

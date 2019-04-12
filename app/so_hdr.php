@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class so_hdr extends Model
 {
-  protected $table = 'so_hdr_all';
+  protected $table = 'so_hdr_dago';
   protected $primaryKey = 'so_num';
   public $timestamps = false;
   public $incrementing = false;

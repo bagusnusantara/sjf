@@ -41,3 +41,8 @@ Route::get('/pengajuanpembelian/{id}/createdetail', 'PengajuanPembelianControlle
 
 //home
 Route::get('/home', 'HomeController@index')->name('home');
+
+//TotalPerTanggal
+Route::get('/getdatapendapatan/tanggal', 'DashboardController@getPendapatanPerTanggal');
+Route::get('/getdatapendapatan/jam', 'DashboardController@getPendapatanPerJam');
+Route::get('/getdatapendapatan/tipeservis', 'DashboardController@getPendapatanPerTipeServis');

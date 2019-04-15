@@ -55,10 +55,11 @@ class PengajuanPembelianController extends Controller
            $profil_list = profil::all();
            $st_um_list = st_um::all();
            $item_planning_list = item_planning::all();
+           $po_detail_list = po_detail::all();
            $bulan = Carbon::now()->format('m');
            $tahun = Carbon::now()->format('Y');
 
-           //$po_detail_list = po_detail::all();
+
            $mid=DB::table('po_hdr')
                      ->select(DB::raw('MID(po_num,12,4) as po'))
                      ->orderBy('po_num','desc')

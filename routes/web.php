@@ -46,3 +46,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/getdatapendapatan/tanggal', 'DashboardController@getPendapatanPerTanggal');
 Route::get('/getdatapendapatan/jam', 'DashboardController@getPendapatanPerJam');
 Route::get('/getdatapendapatan/tipeservis', 'DashboardController@getPendapatanPerTipeServis');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

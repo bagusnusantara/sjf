@@ -1,9 +1,11 @@
-$(function () {
+function pendapatanPerTanggal (start, end, _token) {
     var tgl = [];
     var data = [];
 
     $.ajax({
         url: '/getdatapendapatan/tanggal',
+        type: 'post',
+        data: {start: start.format('YYYY-MM-DD'), end: end.format('YYYY-MM-DD'), _token: _token},
         success: function (result) {
             $.each(result, function (index, element) {
                 tgl.push(element.tanggal);
@@ -29,4 +31,4 @@ $(function () {
             new Chart(drawLineGraph, {type: 'line', data: lineData, options: lineOptions});
         }
     });
-});
+}

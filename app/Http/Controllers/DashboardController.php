@@ -59,30 +59,33 @@ class DashboardController extends Controller
         return view('invoice_print');
     }
 
-    public function getPendapatanPerTanggal() {
+    public function getPendapatanPerTanggal(Request $request) {
+        $start = $request->start;
+        $end = $request->end;
         $total = DB::select('select date(shd.so_date) as tanggal, sum(shd.grand_total) as total
                                 from so_hdr_dago as shd
-                                group by date(shd.so_date)');
+                                where shd.so_date between ? and ?
+                                group by date(shd.so_date)', [$start, $end]);
         return response()->json($total, 200);
     }
 
-    public function getPendapatanPerJam() {
-        $now = date("Y-m-d");
-//        $now = date("2018-11-28");
+    public function getPendapatanPerJam(Request $request) {
+        $start = $request->start;
+        $end = $request->end;
         $total = DB::select('select hour(time(shd.entry_date)) as time, sum(shd.grand_total) as total
                                 from so_hdr_dago as shd
-                                where date(shd.so_date) = ?
-                                group by hour(time(shd.entry_date))', [$now]);
+                                where shd.so_date between ? and ?
+                                group by hour(time(shd.entry_date))', [$start, $end]);
         return response()->json($total, 200);
     }
 
-    public function getPendapatanPerTipeServis() {
-        $now = date("Y-m-d");
-//        $now = date("2018-11-28");
+    public function getPendapatanPerTipeServis(Request $request) {
+        $start = $request->start;
+        $end = $request->end;
         $total = DB::select('select shd.tipe_service as servis, sum(shd.grand_total) as total
                                 from so_hdr_dago as shd
-                                where date(shd.so_date) = ?
-                                group by shd.tipe_service', [$now]);
+                                where shd.so_date between ? and ?
+                                group by shd.tipe_service', [$start, $end]);
         return response()->json($total, 200);
     }
 }

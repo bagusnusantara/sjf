@@ -17,7 +17,7 @@ function pendapatanPerJenis (start, end, _token) {
                 initMorrisDonut('Dine In', 'Take Away', dinein, takeaway);
 
             } else {
-                initMorrisDonut('no data', 'no data', 100, 100);
+                initMorrisDonut('no data', 'no data', 1, 1);
             }
         }
     });

@@ -63,7 +63,7 @@ class DashboardController extends Controller
         $start = $request->start;
         $end = $request->end;
         $total = DB::select('select date(shd.so_date) as tanggal, sum(shd.grand_total) as total
-                                from so_hdr_dago as shd
+                                from so_hdr_all as shd
                                 where shd.so_date between ? and ?
                                 group by date(shd.so_date)', [$start, $end]);
         return response()->json($total, 200);
@@ -73,7 +73,7 @@ class DashboardController extends Controller
         $start = $request->start;
         $end = $request->end;
         $total = DB::select('select hour(time(shd.entry_date)) as time, sum(shd.grand_total) as total
-                                from so_hdr_dago as shd
+                                from so_hdr_all as shd
                                 where shd.so_date between ? and ?
                                 group by hour(time(shd.entry_date))', [$start, $end]);
         return response()->json($total, 200);
@@ -83,7 +83,17 @@ class DashboardController extends Controller
         $start = $request->start;
         $end = $request->end;
         $total = DB::select('select shd.tipe_service as servis, sum(shd.grand_total) as total
-                                from so_hdr_dago as shd
+                                from so_hdr_all as shd
+                                where shd.so_date between ? and ?
+                                group by shd.tipe_service', [$start, $end]);
+        return response()->json($total, 200);
+    }
+
+    public function getPendapatanPerProduk(Request $request) {
+        $start = $request->start;
+        $end = $request->end;
+        $total = DB::select('select shd.tipe_service as servis, sum(shd.grand_total) as total
+                                from so_hdr_all as shd
                                 where shd.so_date between ? and ?
                                 group by shd.tipe_service', [$start, $end]);
         return response()->json($total, 200);

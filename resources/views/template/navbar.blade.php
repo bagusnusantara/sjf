@@ -39,18 +39,18 @@
                 <a href="{{ url('dashboard')}}"><i class="fa fa-line-chart"></i> <span class="nav-label">Dashboard</span></span></a>
             </li>
 
-            <li class="@if(url('/Laporan') == request()->url()
+            <li class="@if(url('/laporan') == request()->url()
                ) active @else '' @endif  treeview">
-                <a href="{{ url('Laporan')}}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Laporan</span></span></a>
+                <a href="{{ url('laporan')}}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Laporan</span></span></a>
             </li>
 
-            <li class="@if(url('/MDBarang') == request()->url()
+            <li class="@if(url('/itemplanning') == request()->url()
                ) active @else '' @endif  treeview">
                 <a href="{{ url('PengajuanPembelian')}}"><i class="fa fa-sitemap"></i> <span class="nav-label">Katalog</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                        <li  class="@if(url('/MDBarang') == request()->url()
+                        <li  class="@if(url('/itemplanning') == request()->url()
                            ) active @else '' @endif  treeview">
-                           <a href="{{ url('MDBarang')}}">Produk</a></li>
+                           <a href="{{ url('itemplanning')}}">Produk</a></li>
                         <li class="@if(url('/MDGudang') == request()->url()
                            ) active @else '' @endif  treeview">
                             <a href="{{ url('MDGudang')}}">Stok</a></li>
@@ -67,16 +67,20 @@
                 </ul>
             </li>
 
-            <li class="@if(url('/PengajuanPembelian') == request()->url()
+            <li class="@if(url('/pengajuanpembelian') == request()->url()
                ) active @else '' @endif  treeview">
                 <a href="{{ url('/pengajuanpembelian')}}"><i class="fa fa-paper-plane-o"></i> <span class="nav-label">Order Pembelian</span></span></a>
             </li>
 
-            <li class="@if(url('/PenerimaanPO') == request()->url()
+            <li class="@if(url('/penerimaanPO') == request()->url()
                ) active @else '' @endif  treeview">
-                <a href="{{ url('PenerimaanPO')}}"><i class="fa fa-handshake-o"></i> <span class="nav-label">Penerimaan PO</span></a>
+                <a href="{{ url('penerimaanPO')}}"><i class="fa fa-handshake-o"></i> <span class="nav-label">Penerimaan PO</span></a>
             </li>
 
+            <li class="@if(url('/penggunaanbarang') == request()->url()
+               ) active @else '' @endif  treeview">
+                <a href="{{ url('penggunaanbarang')}}"><i class="fa fa-external-link"></i> <span class="nav-label">Penggunaan Barang</span></a>
+            </li>
             <!-- <li class="@if(url('/Laporan') == request()->url()
                ) active @else '' @endif  treeview">
                 <a href="{{ url('Laporan')}}"><i class="fa fa-sitemap"></i> <span class="nav-label">Laporan</span><span class="fa arrow"></span></a>

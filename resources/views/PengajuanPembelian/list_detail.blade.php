@@ -20,16 +20,6 @@
   <td>{{ $po_detail->price }}</td>
   <td>
     <button type="button" class="btn btn-danger btn-xs" > Delete</i></button>
-    <!-- <div>
-      <form id="delete-form-{{ $po_detail->id }}" action="{{ route('PengajuanPembelianAll.destroy',$po_detail->id) }}" style="display: none;" method="POST">
-        @csrf
-        @method('DELETE')
-      </form>
-      <button type="button" class="btn btn-danger btn-xs" onclick="if(confirm('Are you sure? You want to delete this?')){
-        event.preventDefault();
-        document.getElementById('delete-form-{{ $hdr->po_num }}').submit();
-      }else {  event.preventDefault();}"> Delete</i></button>
-    </div> -->
   </td>
   @endforeach
   </tr>

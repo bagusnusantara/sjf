@@ -23,7 +23,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
-class PengajuanPembelianController extends Controller
+class PenerimaanPOController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -40,7 +40,7 @@ class PengajuanPembelianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function indexHeader()
+     public function indexPO()
       {
 
            $hdr_all = po_hdr::all();
@@ -70,7 +70,7 @@ class PengajuanPembelianController extends Controller
           $m= Carbon::now()->format('Y-m-d');
           //dd($mid);
 
-           return view('PengajuanPembelian.index',compact('detail','hdr_all','st_location_list','item_planning_list','vendor_list','st_payment_list','st_agent_list','st_currency_list','data_buyer_list','st_delivery_list','st_delivery_transport_list','profil_list','st_um_list','item_planning_list','po_detail_list','bulan','tahun','mid'));
+           return view('PenerimaanPO.index',compact('detail','hdr_all','st_location_list','item_planning_list','vendor_list','st_payment_list','st_agent_list','st_currency_list','data_buyer_list','st_delivery_list','st_delivery_transport_list','profil_list','st_um_list','item_planning_list','po_detail_list','bulan','tahun','mid'));
       }
 
       public function createdetail($po_num)
@@ -124,8 +124,6 @@ class PengajuanPembelianController extends Controller
         $st_um_kode = Input::get('st_um_kode');
         $order_qty = Input::get('order_qty');
         $po_hdr_po_num = Input::get('po_hdr_po_num');
-        $konversi = Input::get('konversi');
-        $tolerance = Input::get('tolerance');
         foreach($item_planning_kode as $key => $value){
             $dtl = new po_detail();
             $dtl->po_hdr_po_num = $po_hdr_po_num[$key];
@@ -133,8 +131,6 @@ class PengajuanPembelianController extends Controller
             $dtl->st_um_kode = $st_um_kode[$key];
             $dtl->order_qty = $order_qty[$key];
             $dtl->po_hdr_po_num = $po_hdr_po_num[$key];
-            $dtl->konversi= $konversi[$key];
-            $dtl->tolerance = $tolerance[$key];
             $dtl->save();
         }
 
@@ -153,11 +149,11 @@ class PengajuanPembelianController extends Controller
     //       $hdr_list = po_hdr::all();
     //       return view('Purchasing.PengajuanPembelian.indexhdr',compact('hdr_list'));
     //  }
-    public function show(Request $request,$po_num)
+    public function showPO(Request $request,$po_num)
     {
       $hdr_all = po_hdr::find($po_num);
       $detail = po_detail::where('po_hdr_po_num', $hdr_all->po_num)->get();
-      return view('PengajuanPembelian.index', compact('hdr_all','detail'));
+      return view('PenerimaanPO.create_penerimaan', compact('hdr_all','detail'));
     }
     //
     // /**

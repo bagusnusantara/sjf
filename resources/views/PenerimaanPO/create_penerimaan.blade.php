@@ -5,13 +5,13 @@
 <div id="wrapper">
   <div class="row wrapper border-bottom white-bg page-heading">
       <div class="col-sm-4">
-          <h2>Order Pembelian</h2>
+          <h2>Penerimaan PO</h2>
           <ol class="breadcrumb">
               <li>
                   <a href="index.html">Dashboard</a>
               </li>
               <li class="active">
-                  <strong>Order Pembelian</strong>
+                  <strong>Penerimaan PO</strong>
               </li>
           </ol>
       </div>
@@ -24,42 +24,38 @@
     <div class="col-lg-12">
         <div class="ibox ">
             <div class="ibox-title">
-                <h5>List Pengajuan Pembelian</h5>
+                <h5>List PO</h5>
 
             </div>
             <div class="ibox-content">
-                <div class="text-right">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">
-                              +
-                          </button>
-                </div>
-                <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title">Insert Pengajuan Pembelian</h4>
-                            </div>
-                            <div class="modal-body">
-                              <form method="POST" action="{{url('/pengajuanpembelian')}}" class="form-horizontal" enctype="multipart/form-data">
-                                    @csrf
-                                    @include('PengajuanPembelian.form_header')
-                            </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-
-                @include('PengajuanPembelian.list_header')
-
+              <table class="table table-striped table-bordered table-hover" >
+              <thead>
+              <tr>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
+                  <th>Satuan</th>
+                  <th>Order Quantity</th>
+                  <th>Receive Quantity</th>
+                  <th>Harga</th>
+              </tr>
+              </thead>
+              <tbody>
+                @foreach($detail as $po_detail)
+                <tr>
+                <td>{{ $po_detail->item_planning_kode }}</td>
+                <td>{{ $po_detail->item_planning->deskripsi }}</td>
+                <td>{{ $po_detail->st_um_kode }}</td>
+                <td>{{ $po_detail->order_qty }}</td>
+                <td
+                  <div><input type="text" class="form-control" name="kurs"></div>
+                </td>
+                <td>{{ $po_detail->price }}</td>
+                @endforeach
+                </tr>
+              </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Simpan</button>
 
             </div>
         </div>
@@ -134,14 +130,5 @@
              });
 
          </script>
-
-
-
-
-
-
-
-
-
 
 @endsection

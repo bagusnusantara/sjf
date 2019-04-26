@@ -32,7 +32,7 @@ class po_detail extends Model
 
   public function item_planning()
   {
-    return $this->belongsTo('App\ItemPlanning', 'item_planning_kode');
+    return $this->belongsTo('App\item_planning', 'item_planning_kode');
   }
   public function st_um()
   {

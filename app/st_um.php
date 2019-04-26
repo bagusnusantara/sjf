@@ -9,6 +9,7 @@ class st_um extends Model
   protected $table = 'st_um';
   protected $primaryKey = 'kode';
   public $timestamps = false;
+  public $incrementing = false;
 
 
   public function po_detail()
@@ -23,7 +24,7 @@ class st_um extends Model
 
   public function ItemPlanning()
   {
-    return $this->hasMany('App\ItemPlanning');
+    return $this->hasMany('App\item_planning');
   }
   public function stock_card()
   {

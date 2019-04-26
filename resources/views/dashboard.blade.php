@@ -23,11 +23,40 @@
     </div>
 
     <div class="wrapper wrapper-content animated fadeInRight" >
+      <!-- <div class="row">
+              <div class="col-lg-4">
+                  <div class="widget style1 navy-bg">
+                      <div class="row vertical-align">
+                          <div class="col-xs-3">
+                              <i class="fa fa-line-chart fa-3x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <h2 class="font-bold">217</h2>
+                              <h4>Total Pendapatan</h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="widget style1 navy-bg">
+                      <div class="row vertical-align">
+                          <div class="col-xs-3">
+                              <i class="fa fa-thumbs-up fa-3x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <h2 class="font-bold">400</h2>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div> -->
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Pendapatan Berdasarkan Tanggal </h5>
+                        <h5>Pendapatan Semua Outlet Berdasarkan Tanggal </h5>
                     </div>
                     <div class="ibox-content">
                         <div>
@@ -66,26 +95,9 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Top Grup Produk</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
                     </div>
                     <div class="ibox-content">
-                        <div id="morris-donut-chart" ></div>
+                        <div id="donutChartPerProduk" ></div>
                     </div>
                 </div>
             </div>

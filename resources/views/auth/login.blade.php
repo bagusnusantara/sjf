@@ -39,7 +39,7 @@
 					</span>
 
 					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-						<input id="email" class="input100" type="text" name="email" placeholder="E-Mail / Username" value="{{ old('email') }}" required autofocus>
+						<input id="email" class="input100" type="text" name="email" placeholder="E-Mail" value="{{ old('email') }}" required autofocus>
 						@if ($errors->has('email'))
 								<span class="invalid-feedback" role="alert">
 										<strong>{{ $errors->first('email') }}</strong>
@@ -48,7 +48,7 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+						<input class="input100" id="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 						@if ($errors->has('password'))
 								<span class="invalid-feedback" role="alert">
 										<strong>{{ $errors->first('password') }}</strong>

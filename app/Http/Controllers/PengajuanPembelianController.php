@@ -66,8 +66,12 @@ class PengajuanPembelianController extends Controller
                      ->where('po_date','like','%')
                      ->limit(1)
                      ->get();
+<<<<<<< HEAD
 
           $m= Carbon::now()->format('Y-m-d');
+=======
+          //$m= Carbon::now()->format('Y-m-d');
+>>>>>>> 81e87ca2334c4ae34fe2a099d778f2e8c71fd412
           //dd($mid);
 
            return view('PengajuanPembelian.index',compact('detail','hdr_all','st_location_list','item_planning_list','vendor_list','st_payment_list','st_agent_list','st_currency_list','data_buyer_list','st_delivery_list','st_delivery_transport_list','profil_list','st_um_list','item_planning_list','po_detail_list','bulan','tahun','mid'));

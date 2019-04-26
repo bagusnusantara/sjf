@@ -33,6 +33,7 @@
                               +
                           </button>
                 </div>
+<<<<<<< HEAD
                 <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -49,6 +50,32 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
+=======
+                <div class="ibox-content">
+                    <div class="text-right">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">
+                                  +
+                              </button>
+                    </div>
+                    <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title">Insert Pengajuan Pembelian</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <form method="POST" action="{{url('/pengajuanpembelian')}}" class="form-horizontal" enctype="multipart/form-data">
+                                        @csrf
+                                        @include('PengajuanPembelian.form_header')
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </form>
+>>>>>>> 81e87ca2334c4ae34fe2a099d778f2e8c71fd412
                             </div>
                             </form>
                         </div>
